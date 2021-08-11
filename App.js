@@ -16,3 +16,18 @@ nameText.addEventListener('input', function () {
     else 
         nameTextError.textContent = 'Name invalid'
 });
+
+// Validate the email using the REGEX expression
+
+const email = document.querySelector('#email');
+const emailError = document.querySelector('.email-error');
+email.addEventListener('input', function () {
+    let emailRegex = RegExp(
+        "^[a-zA-Z0-9_+&*#$^!-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$"
+    );
+    if (emailRegex.test(email.value)) 
+        emailError.emailContent = ' ';
+    else 
+        emailError.emailContent = "Email is InValid";
+    }
+);
