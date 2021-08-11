@@ -22,16 +22,19 @@ nameText.addEventListener('input', function () {
 const email = document.querySelector('#email');
 const emailError = document.querySelector('.email-error');
 email.addEventListener('input', function () {
+    console.log(emailError);
     let emailRegex = RegExp(
-        "^[a-zA-Z0-9_+&*#$^!-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{" +
-        "2,7}$"
+        "^[A-Z a-z]{1,}([+-_.]*)[A-Z a-z 0-9 _+-.]*[@]{1}[A-Z a-z 0-9 +_-]{1,}[.]{1}[a-" +
+        "z]{2,3}([.]{1}[a-z]{2})*$"
     );
-    if (emailRegex.test(email.value)) 
-        emailError.emailContent = ' ';
-    else 
-        emailError.emailContent = "Email is InValid";
+    if (emailRegex.test(email.value)) {
+        console.log("Correct Email");
+        emailError.textContent = "";
+    } else {
+        console.log("Invalid Email");
+        emailError.textContent = "Email is InValid";
     }
-);
+});
 
 // Validate  phone number using the REGEX expression
 
@@ -44,5 +47,16 @@ number.addEventListener('input', function () {
         numberError.textContent = ' ';
     } else 
         numberError.textContent = 'Invalid Number!';
+    }
+);
+//password validation using regex pattern
+const pwd = document.querySelector('#pwd');
+const passworderror = document.querySelector('.pwd-error');
+pwd.addEventListener('input', function () {
+    let passwordpattern = RegExp('^[a-z A-Z 0-9 @#%!&*_]{8,}$');
+    if (passwordpattern.test(pwd.value)) 
+        passworderror.textContent = ' ';
+    else 
+        passworderror.textContent = 'Invalid Password!';
     }
 );
