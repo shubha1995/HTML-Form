@@ -53,7 +53,7 @@ number.addEventListener('input', function () {
 const pwd = document.querySelector('#pwd');
 const passworderror = document.querySelector('.pwd-error');
 pwd.addEventListener('input', function () {
-    let passwordpattern = RegExp('^[a-z A-Z 0-9 @#%!&*_]{8,}$');
+    let passwordpattern = RegExp('^[A-Z]{1}[a-z A-Z 0-9 @#%!&*_]{8,}$');
     if (passwordpattern.test(pwd.value)) 
         passworderror.textContent = ' ';
     else 
